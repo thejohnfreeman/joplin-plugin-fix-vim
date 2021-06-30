@@ -2,6 +2,8 @@
   "name": "joplin-plugin-fix-vim",
   "version": "0.1.0",
   "author": "John Freeman <jfreeman08@gmail.com>",
+  "homepage": "https://github.com/thejohnfreeman/joplin-plugin-fix-vim",
+  "repository": "https://github.com/thejohnfreeman/joplin-plugin-fix-vim",
   "license": "ISC",
   "scripts": {
     "build": "joplin-plugin-build && joplin-plugin-pack"
@@ -10,7 +12,6 @@
     "@thejohnfreeman/joplin-plugin": "^2.0.1-4"
   },
   "devDependencies": {
-    "@types/codemirror": "^5.60.1",
     "prettier": "^2.3.2"
   }
 }
