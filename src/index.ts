@@ -8,5 +8,9 @@ joplin.plugins.register({
       'fixVim',
       './codemirror-plugin.js'
     )
+    const contentScriptId = 'fixVim'
+    joplin.contentScripts.onMessage(contentScriptId, (command: string) =>
+      joplin.commands.execute(command)
+    )
   },
 })

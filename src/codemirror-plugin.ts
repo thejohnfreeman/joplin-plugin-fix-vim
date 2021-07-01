@@ -1,20 +1,22 @@
-import joplin from '@thejohnfreeman/joplin-plugin'
 import { ContentScriptContext } from '@thejohnfreeman/joplin-plugin/types'
 
-function plugin(CodeMirror) {
-  const Vim = CodeMirror.Vim
-  Vim.defineAction('gotoAnything', () =>
-    joplin.commands.execute('gotoAnything')
-  )
-  Vim.defineAction('newNote', () => joplin.commands.execute('newNote'))
-  Vim.defineAction('newTodo', () => joplin.commands.execute('newTodo'))
-  Vim.mapCommand('<C-p>', 'action', 'gotoAnything')
-  Vim.mapCommand('<C-n>', 'action', 'newNote')
-  Vim.mapCommand('<C-t>', 'action', 'newTodo')
+function plugin(context: ContentScriptContext) {
+  return (CodeMirror) => {
+    const Vim = CodeMirror.Vim
+    // @ts-ignore
+    Vim.defineAction('gotoAnything', () => context.postMessage('gotoAnything'))
+    // @ts-ignore
+    Vim.defineAction('newNote', () => context.postMessage('newNote'))
+    // @ts-ignore
+    Vim.defineAction('newTodo', () => context.postMessage('newTodo'))
+    Vim.mapCommand('<C-p>', 'action', 'gotoAnything')
+    Vim.mapCommand('<C-n>', 'action', 'newNote')
+    Vim.mapCommand('<C-t>', 'action', 'newTodo')
+  }
 }
 
 function load(context: ContentScriptContext) {
-  return { plugin }
+  return { plugin: plugin(context) }
 }
 
 export default {
