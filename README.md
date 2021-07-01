@@ -8,6 +8,6 @@ when the editor has Vim keybindings.
 It adds and overrides these keybindings in all modes of Vim (insert, normal,
 visual, command):
 
-- &lt;C-p>: Go to anything.
-- &lt;C-n>: Open a new note.
-- &lt;C-t>: Open a new todo.
+- <kbd>C-p</kbd>: Go to anything.
+- <kbd>C-n</kbd>: Open a new note.
+- <kbd>C-t</kbd>: Open a new todo.
